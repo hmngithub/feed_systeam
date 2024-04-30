@@ -1,0 +1,1196 @@
+identifier: converse
+infer_app_name: false
+description: Laams CONVERSE Client Application
+template: app
+path: ''
+interfaces_path: lib/src/blocs/gateways
+states_path: lib/src/blocs/states
+blocs_path: lib/src/blocs
+adapters_path: lib/src/adapters
+views_path: lib/src/views
+data_providers_path: lib/src
+initials_path: lib
+gen_app: false
+get_deps: false
+gen_states: true
+gen_blocs: true
+gen_auth: true
+gen_adapters: true
+gen_main: false
+gen_router: false
+gen_views: false
+gen_tests: false
+has_jaguar: false
+version: ''
+dependencies: []
+dev_dependencies: []
+enums:
+- identifier: AuthMethod
+  fields:
+  - idle
+  - email
+  - phone
+  - apple
+  - google
+  - facebook
+  - unknown
+  default: unknown
+  path: lib/src/domain/enums
+- identifier: MediaType
+  fields:
+  - photo
+  - video
+  default: photo
+  path: lib/src/domain/enums
+- identifier: MessageType
+  fields:
+  - text
+  - url
+  - photo
+  - video
+  - audio
+  - document
+  - location
+  - emoje
+  default: text
+  path: lib/src/domain/enums
+- identifier: ConversationType
+  fields:
+  - oneToOne
+  - group
+  default: oneToOne
+  path: lib/src/domain/enums
+user: ConverseUser
+entities:
+- identifier: ConverseUser
+  is_abstract: false
+  is_immutable: true
+  gen_single_bloc: false
+  gen_plural_bloc: false
+  has_serializers: true
+  should_stream: true
+  path: lib/src/domain/entities
+  repo_name: users
+  queries: 
+  - "orderBy = const {'creationDate': true}"
+  imports:
+  - ../enums/auth_method.g.dart
+  - current_role.g.dart
+  fields:
+  - identifier: id
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: imageUrl
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: namePrefix
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: firstName
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: middleName
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: lastName
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: authMethod
+    data_type: AuthMethod
+    default: AuthMethod.unknown
+    documentation: null
+    is_enum: true
+    is_immutable: true
+    is_nullable: false
+    is_public: true
+  - identifier: email
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: password
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: role
+    data_type: CurrentRole
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: false
+    is_public: true
+  - identifier: registerDate
+    data_type: DateTime
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: creationDate
+    data_type: DateTime
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: creatorId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: lastModifiedDate
+    data_type: DateTime
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: lastModifierId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  constructors:
+  - identifier: null
+    documentation: null
+    is_public: true
+    are_params_named: true
+    init_defaults: false
+  - identifier: init
+    documentation: null
+    is_public: true
+    are_params_named: true
+    init_defaults: true
+- identifier: Conversation
+  is_abstract: false
+  is_immutable: true
+  gen_single_bloc: false
+  gen_plural_bloc: false
+  has_serializers: true
+  should_stream: true
+  path: lib/src/domain/entities
+  repo_name: conversations
+  queries: []
+  imports:
+  - ../enums/conversation_type.g.dart
+  fields:
+  - identifier: id
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: members
+    data_type: List<String>
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: title
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: imageUrl
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: type
+    data_type: ConversationType
+    default: ConversationType.oneToOne
+    documentation: null
+    is_enum: true
+    is_immutable: true
+    is_nullable: false
+    is_public: true
+  - identifier: creationDate
+    data_type: DateTime
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: creatorId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: lastModifiedDate
+    data_type: DateTime
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: lastModifierId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  constructors:
+  - identifier: null
+    documentation: null
+    is_public: true
+    are_params_named: true
+    init_defaults: false
+  - identifier: init
+    documentation: null
+    is_public: true
+    are_params_named: true
+    init_defaults: true
+- identifier: Message
+  is_abstract: false
+  is_immutable: true
+  gen_single_bloc: false
+  gen_plural_bloc: false
+  has_serializers: true
+  should_stream: true
+  path: lib/src/domain/entities
+  repo_name: messages
+  queries:
+  - "orderBy = const {'creationDate': true}"
+  imports:
+  - ../enums/message_type.g.dart
+  fields:
+  - identifier: id
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: senderId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: recieverId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: parentReplyId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: childReplyId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: content
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: type
+    data_type: MessageType
+    default: MessageType.text
+    documentation: null
+    is_enum: true
+    is_immutable: true
+    is_nullable: false
+    is_public: true
+  - identifier: creationDate
+    data_type: DateTime
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: creatorId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: lastModifiedDate
+    data_type: DateTime
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: lastModifierId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  constructors:
+  - identifier: null
+    documentation: null
+    is_public: true
+    are_params_named: true
+    init_defaults: false
+  - identifier: init
+    documentation: null
+    is_public: true
+    are_params_named: true
+    init_defaults: true
+- identifier: Like
+  is_abstract: false
+  is_immutable: true
+  gen_single_bloc: true
+  gen_plural_bloc: true
+  has_serializers: true
+  path: lib/src/domain/entities
+  repo_name: likes
+  queries: []
+  imports: []
+  fields:
+  - identifier: id
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: businessId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: feedId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: userId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: creationDate
+    data_type: DateTime
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: creatorId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: creatorFirstName
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: creatorLastName
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: lastModifiedDate
+    data_type: DateTime
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: lastModifierId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  constructors:
+  - identifier: null
+    documentation: null
+    is_public: true
+    are_params_named: true
+    init_defaults: false
+  - identifier: init
+    documentation: null
+    is_public: true
+    are_params_named: true
+    init_defaults: true
+- identifier: FeedBackRound
+  is_abstract: false
+  is_immutable: true
+  gen_single_bloc: true
+  gen_plural_bloc: true
+  has_serializers: true
+  path: lib/src/domain/entities
+  repo_name: feedBackRoundText
+  queries: []
+  imports: []
+  fields:
+  - identifier: id
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: creatorId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: lastModifierId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: content
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: fontSize
+    data_type: double
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: contentRedValue
+    data_type: int
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: contentgreenValue
+    data_type: int
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: contentBlueValue
+    data_type: int
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: contenAccentValue
+    data_type: int
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: backroundRedValue
+    data_type: int
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: backroundGreenValue
+    data_type: int
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: backroundBlueValue
+    data_type: int
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: backroundAccentValue
+    data_type: int
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: startSpace
+    data_type: double
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: topSpace
+    data_type: double
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: creationDate
+    data_type: DateTime
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: lastModifiedDate
+    data_type: DateTime
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  constructors:
+  - identifier: null
+    documentation: null
+    is_public: true
+    are_params_named: true
+    init_defaults: false
+  - identifier: init
+    documentation: null
+    is_public: true
+    are_params_named: true
+    init_defaults: true
+- identifier: Media
+  is_abstract: false
+  is_immutable: true
+  gen_single_bloc: true
+  gen_plural_bloc: true
+  has_serializers: true
+  path: lib/src/domain/entities
+  repo_name: media
+  queries: []
+  imports: 
+  - ../enums/media_type.g.dart
+  fields:
+  - identifier: id
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: creatorId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: lastModifierId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: url
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: type
+    data_type: MediaType
+    default: MediaType.photo
+    documentation: null
+    is_enum: true
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: creationDate
+    data_type: DateTime
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: lastModifiedDate
+    data_type: DateTime
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  constructors:
+  - identifier: null
+    documentation: null
+    is_public: true
+    are_params_named: true
+    init_defaults: false
+  - identifier: init
+    documentation: null
+    is_public: true
+    are_params_named: true
+    init_defaults: true
+- identifier: Feed
+  is_abstract: false
+  is_immutable: true
+  gen_single_bloc: true
+  gen_plural_bloc: true
+  has_serializers: true
+  path: lib/src/domain/entities
+  repo_name: feeds
+  queries: 
+  - 'includeUserId = false'
+  - "orderBy = const {'creationDate': true}"
+  imports: 
+  - feed_back_round.g.dart
+  - media.g.dart
+  fields:
+  - identifier: id
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: content
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: likes
+    data_type: int
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: creatorFirstName
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: creatorLastName
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: liked
+    data_type: bool
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: hasbackRound
+    data_type: bool
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: backRound
+    data_type: FeedBackRound
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true   
+  - identifier: medias
+    data_type: List<Media>
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: businessId
+    data_type: String
+    default: null
+    documentation: Associations-Related Fields
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: branchId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: facultyId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: departmentId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: divisionId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: userId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: stakeholderId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: creationDate
+    data_type: DateTime
+    default: null
+    documentation: CRUD-Related Fields
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: creatorId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: creatorImageUrl
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: lastModifiedDate
+    data_type: DateTime
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: lastModifierId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  constructors:
+  - identifier: null
+    documentation: null
+    is_public: true
+    are_params_named: true
+    init_defaults: false
+  - identifier: init
+    documentation: null
+    is_public: true
+    are_params_named: true
+    init_defaults: true
+- identifier: Comment
+  is_abstract: false
+  is_immutable: true
+  gen_single_bloc: true
+  gen_plural_bloc: true
+  has_serializers: true
+  path: lib/src/domain/entities
+  repo_name: null
+  queries: 
+  - "includeBusinessId = false"
+  - "includeUserId = false"
+  fields:
+  - identifier: id
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: content
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: isReply
+    data_type: bool
+    default: false
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: false
+    is_public: true
+  - identifier: businessId
+    data_type: String
+    default: null
+    documentation: Associations-Related Fields
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: branchId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: facultyId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: departmentId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: divsionId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: teamId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: degreeId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: specializationId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: levelId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: courseId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: unitId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: unitContentId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: feedId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: taskId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: parentId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: stakeholderId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: enrollmentId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: userId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: userImageUrl
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: userFullName
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: creationDate
+    data_type: DateTime
+    default: null
+    documentation: CRUD-Related Fields
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: creatorId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: lastModifiedDate
+    data_type: DateTime
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  - identifier: lastModifierId
+    data_type: String
+    default: null
+    documentation: null
+    is_enum: false
+    is_immutable: true
+    is_nullable: true
+    is_public: true
+  constructors:
+  - identifier: null
+    documentation: null
+    is_public: true
+    are_params_named: true
+    init_defaults: false
+  - identifier: init
+    documentation: null
+    is_public: true
+    are_params_named: true
+    init_defaults: true
+interfaces:
+- identifier: converseRepository
+  path: lib/src/blocs/gateways
+  imports: []
+  methods: []

@@ -1,0 +1,119 @@
+{
+  "project_info": {
+    "project_number": "895467730252",
+    "firebase_url": "https://laams-workspace-dev-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "laams-workspace-dev",
+    "storage_bucket": "laams-workspace-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895467730252:android:88367e8803ea5904b08be9",
+        "android_client_info": {
+          "package_name": "com.example.feed"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895467730252-vilp685mrfpkc5tl5dhffsu1dhsukm92.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWHuGKYriMOXDvHa5pxLuYs-4y0YdijzE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895467730252-vilp685mrfpkc5tl5dhffsu1dhsukm92.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "895467730252-3n72qo1rua85cjqv4otvmq7jgavmun1f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.laams.laamsWorkspaceDev"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895467730252:android:62abffa5359bc2a9b08be9",
+        "android_client_info": {
+          "package_name": "com.laams.converse_example"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895467730252-vilp685mrfpkc5tl5dhffsu1dhsukm92.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWHuGKYriMOXDvHa5pxLuYs-4y0YdijzE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895467730252-vilp685mrfpkc5tl5dhffsu1dhsukm92.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "895467730252-3n72qo1rua85cjqv4otvmq7jgavmun1f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.laams.laamsWorkspaceDev"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:895467730252:android:8be1f734bfe35112b08be9",
+        "android_client_info": {
+          "package_name": "com.laams.laams_workspace_dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "895467730252-vilp685mrfpkc5tl5dhffsu1dhsukm92.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWHuGKYriMOXDvHa5pxLuYs-4y0YdijzE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "895467730252-vilp685mrfpkc5tl5dhffsu1dhsukm92.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "895467730252-3n72qo1rua85cjqv4otvmq7jgavmun1f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.laams.laamsWorkspaceDev"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

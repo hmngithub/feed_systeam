@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>895467730252-lvcnddrr7vmcbrses7njrfvor34s0e84.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.895467730252-lvcnddrr7vmcbrses7njrfvor34s0e84</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBci890mwnfWes93qMkxtPex_kgA0Ubd88</string>
+	<key>GCM_SENDER_ID</key>
+	<string>895467730252</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.laams.converseExample</string>
+	<key>PROJECT_ID</key>
+	<string>laams-workspace-dev</string>
+	<key>STORAGE_BUCKET</key>
+	<string>laams-workspace-dev.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:895467730252:ios:8e9be202f8c5b24db08be9</string>
+	<key>DATABASE_URL</key>
+	<string>https://laams-workspace-dev-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+</dict>
+</plist>

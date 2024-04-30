@@ -1,0 +1,48 @@
+name: converse_client
+description: "Laams Converse Client Application"
+version: 0.0.1
+publish_to: "none"
+
+environment:
+  sdk: ">=3.2.3 <4.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  uuid: ^4.3.3
+  firebase_auth: ^4.17.6
+  cloud_firestore: ^4.15.6
+  kooza_flutter: ^2.0.5
+  flutter_bloc: ^8.1.4
+  file_picker: ^6.1.1
+  file_saver: ^0.2.11
+  encrypt: ^5.0.3
+  connectivity_plus: ^5.0.2
+  google_sign_in: ^6.2.1
+  go_router: ^13.2.0
+  shimmer: ^3.0.0
+  rxdart: ^0.27.7
+  readmore: ^2.2.0
+  intl: ^0.19.0
+  flutter_emoji: ^2.5.1
+  google_fonts: ^6.2.0
+  flutter_image_slideshow: ^0.1.6
+  firebase_storage: ^11.6.7
+  cached_network_image: ^3.3.1
+  image_picker: ^1.0.7
+  loading_animation_widget: ^1.2.0+4
+  # url_launcher: ^6.2.3
+  record: ^5.0.4
+  audioplayers: ^5.2.1
+  http: ^1.2.0
+  flutter_colorpicker: ^1.0.3
+  flex_color_picker: ^3.4.0
+  video_player: ^2.8.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter: null
